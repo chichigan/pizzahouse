@@ -17,20 +17,24 @@ Route::get('/', function () {
 
 Route::get('/pizzas', function () {
 	
-	//Variable for if else and unless example in pizzas.blade.php
-	// $pizza = [
-		// 'type'=>'hawaiian',
-		// 'base'=>'garlic crust',
-		// 'price'=>3
-	// ];
-    // return view('pizzas',$pizza);
+	
 	
 	$pizzas = [
 		['type'=>'hawaiian','base'=>'cheesy crust'],
 		['type'=>'volcano','base'=>'garlic crust'],
-		['type'=>'veg supreme','base'=>'thin $ crispy']
+		['type'=>'veg supreme','base'=>'thin & crispy']
 	];
-    return view('pizzas',['pizzas' => $pizzas]);
+
+    return view('pizzas',[
+		'pizzas' => $pizzas,
+		'name' => request('name'),
+		'age'=>request('age')
+	]);
+
 	
-	
+});
+
+Route::get('/pizzas/{id}', function ($id) {
+	//use the $id variabe to query the db for a record
+    return view('details',['id'=>$id]);
 });

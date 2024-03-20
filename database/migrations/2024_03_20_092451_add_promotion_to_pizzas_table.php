@@ -26,7 +26,7 @@ class AddPromotionToPizzasTable extends Migration
     public function down()
     {
         Schema::table('pizzas', function (Blueprint $table) {
-            //
+            $table->dropColumn('promotion');
         });
     }
 }

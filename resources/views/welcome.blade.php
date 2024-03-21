@@ -22,7 +22,7 @@
             The North's Best Pizzas
         </div>
 
-       
+       <a href="../public/pizzas/create">Order a pizza</a>
     </div>
 </div>
 @endsection

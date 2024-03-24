@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pizza;
+use Error;
 
 class PizzaController extends Controller
 {
@@ -30,9 +31,15 @@ class PizzaController extends Controller
 	}
 
 	public function store(){
-		error_log(request('name'));
+		// request('name');
+		$pizzas = new Pizza();
 
+		$pizzas->name = request('name');
+		$pizzas->type = request('type');
+		$pizzas->base = request('base');
 
-		return redirect('/');
+		$pizzas->save();
+
+		return redirect('/')->with('message','Thanks for your order');
 	}
 }

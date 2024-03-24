@@ -17,8 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Show the pizza list
 Route::get('/pizzas', 'PizzaController@index');
+
+//Create new pizza order
 Route::get('/pizzas/create','PizzaController@create');
+
+//Show specific pizza order id
 Route::get('/pizzas/{id}', 'PizzaController@show');
 
 //Store data input from create page

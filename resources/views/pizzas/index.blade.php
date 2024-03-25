@@ -10,7 +10,10 @@
         
         @foreach($pizzas as $pizza)
             <div>
-                {{$pizza->name}} - {{$pizza->type}} -{{$pizza->base}}
+                {{$pizza->name}} - {{$pizza->type}} - {{$pizza->base}} -
+                @foreach($pizza->toppings as $topping)
+                    {{ $topping }}
+                @endforeach
             </div>
         @endforeach
         

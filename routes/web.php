@@ -23,9 +23,11 @@ Route::get('/pizzas', 'PizzaController@index');
 //Create new pizza order
 Route::get('/pizzas/create','PizzaController@create');
 
-//Show specific pizza order id
-Route::get('/pizzas/{id}', 'PizzaController@show');
-
 //Store data input from create page
 Route::post('/pizzas','PizzaController@store');
 
+//Show specific pizza order id
+Route::get('/pizzas/{id}', 'PizzaController@show');
+
+//Delete
+Route::delete('/pizzas/{id}','PizzaController@destroy');

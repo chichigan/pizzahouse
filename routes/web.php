@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //Show the pizza list
-Route::get('/pizzas', 'PizzaController@index');
+Route::get('/pizzas', 'PizzaController@index')->middleware('auth');
 
 //Create new pizza order
 Route::get('/pizzas/create','PizzaController@create');
@@ -27,7 +27,13 @@ Route::get('/pizzas/create','PizzaController@create');
 Route::post('/pizzas','PizzaController@store');
 
 //Show specific pizza order id
-Route::get('/pizzas/{id}', 'PizzaController@show');
+Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
 
 //Delete
-Route::delete('/pizzas/{id}','PizzaController@destroy');
+Route::delete('/pizzas/{id}','PizzaController@destroy')->middleware('auth');
+
+//Auth
+//['register'] mean disable register route
+Auth::routes(['register'=>false]);
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -8,6 +8,8 @@ use Error;
 
 class PizzaController extends Controller
 {
+	//All route with PizzaController will need login(authentication)
+	//Not suggest use this because user can't view the homepage to order pizza
 	// public function __construct()
 	// {
 	// 	$this->middleware('auth');

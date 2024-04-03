@@ -11,7 +11,13 @@
 			<li>{{ $topping }}</li>
 		@endforeach
 	</ul>
+	
+	<!-- Delete the pizzas order -->
+	<!-- <form action="/pizzas/{{ $pizza->id }}" method="POST"> -->
+	
+	<!-- action is named routed in web.php -->
 	<form action="{{ route('pizzas.destroy',$pizza->id) }}" method="POST">
+		<!-- Change method to DELETE so the route can indentify to delete route in web.php -->
 		@csrf
 		@method('DELETE')
 		<button>Complete Order</button>

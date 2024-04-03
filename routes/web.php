@@ -13,11 +13,15 @@
 
 use App\Http\Controllers\PizzaController;
 
+//User id: mario@pizzahouse.com
+//Password: 12345678
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 //Show the pizza list
+//middleware('auth') means protected the route, need login to view the route
 Route::get('/pizzas', 'PizzaController@index')->name('pizzas.index')->middleware('auth');
 
 //Create new pizza order

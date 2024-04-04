@@ -30,7 +30,6 @@ Route::get('/pizzas/create','PizzaController@create')->name('pizzas.create');
 //Store data input from create page
 Route::post('/pizzas','PizzaController@store')->name('pizzas.store');
 
-Auth::routes();
 //Show specific pizza order id
 Route::get('/pizzas/{id}', 'PizzaController@show')->name('pizzas.show')->middleware('auth');
 

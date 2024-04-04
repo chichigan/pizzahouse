@@ -8,6 +8,13 @@ use Error;
 
 class PizzaController extends Controller
 {
+	//All route with PizzaController will need login(authentication)
+	//Not suggest use this because user can't view the homepage to order pizza
+	// public function __construct()
+	// {
+	// 	$this->middleware('auth');
+	// }
+
     public function index(){
 		//$pizzas=Pizza::all();
 		//$pizzas=Pizza::orderBy('name','desc')->get();
@@ -39,9 +46,17 @@ class PizzaController extends Controller
 		$pizzas->base = request('base');
 		$pizzas->toppings = request('toppings');
 		
-
+		//save() is from Pizza Model(database)
 		$pizzas->save();
 
 		return redirect('/')->with('message','Thanks for your order');
+	}
+
+	public function destroy($id){
+		$pizza = Pizza::findOrFail($id);
+
+		//delete() is from Pizza Model(database)
+		$pizza -> delete();
+		return redirect('/pizzas');
 	}
 }

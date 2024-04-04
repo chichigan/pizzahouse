@@ -29,3 +29,7 @@ Route::get('/pizzas/{id}', 'PizzaController@show');
 //Store data input from create page
 Route::post('/pizzas','PizzaController@store');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

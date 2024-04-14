@@ -22,6 +22,8 @@
             The North's Best Pizzas
         </div>
         <p class="mssg">{{session('message')}}</p>
+
+        <!-- Redirect to named create route -->
        <a href="{{route('pizzas.create')}}">Order a pizza</a>
     </div>
 </div>

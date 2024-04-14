@@ -12,6 +12,8 @@
 */
 
 use App\Http\Controllers\PizzaController;
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 //User id: mario@pizzahouse.com
 //Password: 12345678

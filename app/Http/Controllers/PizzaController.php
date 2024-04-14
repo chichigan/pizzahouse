@@ -39,6 +39,8 @@ class PizzaController extends Controller
 
 	public function store(){
 		// request('name');
+
+		//Create new Pizza Model(database) instance to store data
 		$pizzas = new Pizza();
 
 		$pizzas->name = request('name');
